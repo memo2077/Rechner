@@ -28,7 +28,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // Benutzereingaben
-  double? menge, listenPreis, zahl, rabattInProzent, skontoInProzent, transportKosten;
+  double? menge,
+      listenPreis,
+      zahl,
+      rabattInProzent,
+      skontoInProzent,
+      transportKosten;
 
   // Fertige Berechnungen
   double? einkaufsPreis, zielEinkaufsPreis, barEinkaufsPreis, einstandsPreis;
@@ -96,7 +101,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         einkaufsPreis = menge! * listenPreis!;
                         final rabatt = einkaufsPreis! * rabattInProzent! / 100;
                         zielEinkaufsPreis = einkaufsPreis! - rabatt;
-                        final skonto = zielEinkaufsPreis! * skontoInProzent! / 100;
+                        final skonto =
+                            zielEinkaufsPreis! * skontoInProzent! / 100;
                         barEinkaufsPreis = zielEinkaufsPreis! - skonto;
                         einstandsPreis = barEinkaufsPreis! + transportKosten!;
                       });
@@ -186,7 +192,9 @@ class AusgabeReihe extends StatelessWidget {
   final String label3;
   final void Function(String value)? onChanged2;
 
-  const AusgabeReihe({required this.label2, required this.label3, this.onChanged2, Key? key}) : super(key: key);
+  const AusgabeReihe(
+      {required this.label2, required this.label3, this.onChanged2, Key? key})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -197,6 +205,13 @@ class AusgabeReihe extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.blue[100],
             border: Border.all(width: 4),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '$label2 €',
+              style: TextStyle(fontSize: 16),
+            ),
           ),
         ),
         Expanded(
@@ -226,7 +241,9 @@ class EingabeReihe extends StatelessWidget {
   final String hintText;
   final void Function(String value)? onChanged;
 
-  const EingabeReihe({required this.label, required this.hintText, this.onChanged, Key? key}) : super(key: key);
+  const EingabeReihe(
+      {required this.label, required this.hintText, this.onChanged, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
